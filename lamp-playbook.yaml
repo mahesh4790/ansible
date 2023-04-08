@@ -27,5 +27,5 @@
         state: present
     - name: copy info.php
       copy:
-       src: info.php
-       dest: /var/www/html/info.php
+        src: info.php
+        dest: /var/www/html/info.php
