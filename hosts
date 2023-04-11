@@ -5,8 +5,8 @@
 172.13.3.119
 
 [webserver]
-172.31.15.188
-172.13.3.119
+172.31.15.188 package_name=apache2
+172.13.3.119  package_name=apache2 
 
 [appserver]
 172.13.3.119

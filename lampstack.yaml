@@ -1,0 +1,11 @@
+---
+- name: install lamp stack
+  become: yes  
+  tasks:
+    - name: install apache
+      package:
+        name: {{ package_name }}
+        state: present
+  
+   
+  
