@@ -3,13 +3,13 @@
 
 [ubuntu]
 172.31.4.165
-localhost
+172.31.15.110
 
 [appserver]
 172.31.29.120
 172.31.4.165
 
 [webserver]
-localhost
+172.31.15.110
 
 
