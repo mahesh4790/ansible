@@ -5,8 +5,8 @@
 172.31.3.119
 
 [webserver]
-172.31.15.188 package_name=apache2
-172.31.3.119  package_name=apache2 
+172.31.15.188 package_name=apache2 php_packages='[ "php", "libapache2-mod-php", "php-mysql", "php-cli"]'
+172.31.3.119  package_name=apache2 php_packages='[ "php", "libapache2-mod-php", "php-mysql", "php-cli"]'
 
 [appserver]
 172.31.3.119
