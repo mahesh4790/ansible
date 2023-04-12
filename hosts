@@ -2,12 +2,10 @@
 172.31.29.120
 
 [ubuntu]
-localhost
 172.31.4.165
 
 [appserver]
 172.31.29.120
 172.31.4.165
 
-[webserver]
-localhost
+
