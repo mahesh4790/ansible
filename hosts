@@ -1,12 +1,13 @@
-[node1]
-172.31.15.188
+[centos]
+172.31.29.120
 
-[node2]
-172.31.3.119
-
-[webserver]
-172.31.15.188 package_name=apache2 php_packages='[ "php", "libapache2-mod-php", "php-mysql", "php-cli"]'
-172.31.3.119  package_name=apache2 php_packages='[ "php", "libapache2-mod-php", "php-mysql", "php-cli"]'
+[ubuntu]
+localhost
+172.31.4.165
 
 [appserver]
-172.31.3.119
+172.31.29.120
+172.31.4.165
+
+[webserver]
+localhost 
