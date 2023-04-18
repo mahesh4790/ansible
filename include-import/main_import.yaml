@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: no
+  gather_facts: no
+  tasks:
+  - name: non-included task
+    debug:
+      msg: " I'm from calling playbook "
+  - import_tasks: more-task.yaml
+
