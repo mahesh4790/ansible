@@ -6,7 +6,7 @@
     - name: excecute a task
       service:
         name: sshd
-        state: restart
+        state: restarted
       register: firsttask_result
     - name: only do this on change
       debug: 
