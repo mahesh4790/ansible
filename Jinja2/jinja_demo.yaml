@@ -19,10 +19,10 @@
         msg: "course_name = {{ course_name | lower }}"
     - name: using replace filters
       debug:
-        msg: "{{ simple_text | replace( 'me' , 'us') }}"
+        msg: "{{ simple_text | replace('me' , 'us') }}"
     - name: print count
       debug:
         msg: "count of courses = {{ courses | count }}"
     - name: print courses
       debug:
-        msg: {{ courses | random }}
+        msg: "{{ courses | random }}"
