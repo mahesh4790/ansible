@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
   - name: non-included task
-     debug:
-       msg: " I'm from calling playbook "
+    debug:
+      msg: " I'm from calling playbook "
   - include: more-tasks.yaml
 
