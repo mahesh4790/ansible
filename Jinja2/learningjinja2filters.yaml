@@ -1,0 +1,22 @@
+---
+- name: learning jinja2 filters
+  hosts: all
+  become: yes  
+  tasks:
+    - name: excecute a task
+      service:
+        name: sshd
+        state: restart
+      register: firsttask_result
+    - name: only do this on change
+      debug: 
+        msg: "service is changed"
+      when: firsttask_result is changed
+    - name: do this when not changed
+      debug: 
+        msg: "service is not changed"
+      when: firsttask_result is not changed
+    - name: do this on success
+      debug: 
+        msg: "first track is success"
+      when: firsttask_result is success
