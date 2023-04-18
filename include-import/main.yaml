@@ -1,10 +1,10 @@
 ---
-- name: main-include-import
-  hosts: all
+- hosts: all
   become: no
+  gather_facts: no
   tasks:
-    -name: non-included task
+  - name: non-included task
      debug:
        msg: " I'm from calling playbook "
-    -include: more-tasks.yaml
+  - include: more-tasks.yaml
 
