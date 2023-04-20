@@ -1,8 +1,0 @@
----
-- name: include task 1
-  debug: 
-    msg: " This is first include task"
-    
-- name: include task 2
-  debug: 
-    msg: " This is second include task"
