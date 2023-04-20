@@ -5,7 +5,7 @@
   tasks:
     - name: install java on ubuntu 
       apt:
-        - name: openjdk-8-jdk
-          update_cache: yes 
-          state: present
+         name: openjdk-8-jdk
+         update_cache: yes 
+         state: present
       when: ansible_facts['distribution'] == "Ubuntu"
