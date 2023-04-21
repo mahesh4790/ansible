@@ -20,7 +20,7 @@
     - name: download tomcat software
       get_url:
         url: "https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.zip"
-        dest: "/tmp"
+        dest: "/tmp/apache-tomcat-10.1.8.zip"
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: extract tomcat 
       unarchive:
