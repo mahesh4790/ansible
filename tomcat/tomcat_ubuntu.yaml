@@ -7,15 +7,19 @@
   tasks:
     - name: install java on ubuntu 
       apt:
-         name: openjdk-11-jdk
+         name: "{{ java_package }}"
          update_cache: yes 
          state: present
       when: ansible_facts['distribution'] == "Ubuntu"
+    - name: add tomcat group
+      group:
+        name: "{{ username }}"
+        state: present 
     - name: add tomcat user
       user:
-        name: tomcat
+        name: "{{ username }}"
         home: /opt/tomcat
-        group: tomcat
+        group: "{{ username }}"
         shell: /bin/false
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"
