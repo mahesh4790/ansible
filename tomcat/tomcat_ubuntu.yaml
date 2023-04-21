@@ -2,6 +2,8 @@
 - name: install tomcat on ubuntu
   hosts: all
   become: yes 
+  vars_files:
+    - vars/tomcat_ubuntu_vars.yaml    
   tasks:
     - name: install java on ubuntu 
       apt:
@@ -19,13 +21,13 @@
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: download tomcat software
       get_url:
-        url: "https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.zip"
-        dest: "/tmp/apache-tomcat-10.1.8.zip"
+        url: "{{ tomcat_download_source }}"
+        dest: "{{ tomcat_download_location }}"
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: extract tomcat 
       unarchive:
-        src: "/tmp/apache-tomcat-10.1.8.zip"
-        dest: "/opt/tomcat"
+        src: "{{ tomcat_download_location }}"
+        dest: "{{ tomcat_install_path }}"
       when: ansible_facts['distribution'] == "Ubuntu"
 
 
