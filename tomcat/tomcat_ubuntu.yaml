@@ -13,6 +13,8 @@
       group: 
         name: tomcat
         state: present 
+        system: yes 
+      when: ansible_facts['distribution'] == "Ubuntu"
     - name: add tomcat user
       user:
         name: tomcat
