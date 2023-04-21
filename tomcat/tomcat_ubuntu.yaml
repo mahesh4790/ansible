@@ -23,6 +23,10 @@
         shell: /bin/false
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"
+    - name: Unzip package is present
+      package:
+        name: "{{ unzip_package }}"
+        state: present
     - name: download tomcat software
       get_url:
         url: "{{ tomcat_download_source }}"
