@@ -34,7 +34,7 @@
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: extract tomcat 
       unarchive:
-        src: "{{ tomcat_download_location }}"
+        src: "/tmp/apache-tomcat-10.1.8.zip"
         dest: "{{ tomcat_install_path }}"
       when: ansible_facts['distribution'] == "Ubuntu"
 
