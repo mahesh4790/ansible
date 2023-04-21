@@ -44,6 +44,7 @@
         owner:  "{{ username }}"
         group: "{{ username }}"
         state: link
+      when: ansible_facts['distribution'] == "Ubuntu"
 
 
       
