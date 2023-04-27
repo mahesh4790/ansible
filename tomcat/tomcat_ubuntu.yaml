@@ -48,6 +48,7 @@
       file: 
         path: "/opt/tomcat/latest/bin/*.sh"
         mode: "+x"
+      when: ansible_facts['distribution'] == "Ubuntu"
       loop:
         - /opt/tomcat/latest/bin/catalina.sh
         - /opt/tomcat/latest/bin/ciphers.sh
