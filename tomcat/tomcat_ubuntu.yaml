@@ -60,8 +60,12 @@
         - /opt/tomcat/latest/bin/shutdown.sh
         - /opt/tomcat/latest/bin/startup.sh
         - /opt/tomcat/latest/bin/tool-wrapper.sh
-        - /opt/tomcat/latest/bin/version.sh  
-      when: ansible_facts['distribution'] == "Ubuntu"
+        - /opt/tomcat/latest/bin/version.sh 
+      when: ansible_facts['distribution'] == "Ubuntu" 
+    - name: create service
+      copy: 
+        src: tomcat.service
+        dest: /etc/systemd/system/tomcat.service
   handlers:
     - name: create link
       file:
