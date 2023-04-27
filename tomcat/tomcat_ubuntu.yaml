@@ -61,6 +61,7 @@
         - /opt/tomcat/latest/bin/startup.sh
         - /opt/tomcat/latest/bin/tool-wrapper.sh
         - /opt/tomcat/latest/bin/version.sh  
+      when: ansible_facts['distribution'] == "Ubuntu"
   handlers:
     - name: create link
       file:
