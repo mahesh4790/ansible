@@ -37,6 +37,9 @@
         src: "/tmp/apache-tomcat-10.1.8.zip"
         dest: "{{ tomcat_install_path }}"
       when: ansible_facts['distribution'] == "Ubuntu"
+      notify: 
+        - create link
+  handlers:
     - name: create link
       file:
         src: /opt/tomcat/apache-tomcat-10.1.8
