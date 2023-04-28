@@ -39,15 +39,49 @@
       when: ansible_facts['distribution'] == "Ubuntu"
       notify: 
         - create link
-    - name: create service
-      copy: 
+    - name: change permissions
+      ansible.builtin.file:
+        dest: /opt/tomcat
+        recurse: true
+        owner: tomcat
+        group: tomcat
+        state: directory
+    - name: add execute permissions to shell files
+      ansible.builtin.command: sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
+    - name: Create a systemd unit file
+      ansible.builtin.copy:
         src: tomcat.service
         dest: /etc/systemd/system/tomcat.service
-    - name: daemon reload and start tomcat
-      systemd:
-        name: tomcat
+        owner: tomcat
+        group: tomcat
+    - name: reload daemon and start tomcat
+      ansible.builtin.systemd:
+        name: tomcat.service
         daemon_reload: yes
+        enabled: yes
         state: started
+    - name: copy the users xml
+      ansible.builtin.copy:
+        src: tomcat-users.xml
+        dest: /opt/tomcat/latest/conf/tomcat-users.xml
+        owner: tomcat
+        group: tomcat
+    - name: copy the manager app context file
+      ansible.builtin.copy:
+        src: context.xml
+        dest: /opt/tomcat/latest/webapps/manager/META-INF/context.xml
+        owner: tomcat
+        group: tomcat
+    - name: copy the host manager app context file
+      ansible.builtin.copy:
+        src: hostmanager-context.xml
+        dest: /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
+        owner: tomcat
+        group: tomcat
+    - name: restart tomcat
+      ansible.builtin.systemd:
+        name: tomcat.service
+        state: restarted
   handlers:
     - name: create link
       file:
@@ -56,7 +90,7 @@
         owner:  "{{ username }}"
         group: "{{ username }}"
         state: link
-      when: ansible_facts['distribution'] == "Ubuntu"
+      
 
 
       
