@@ -1,0 +1,8 @@
+---
+# vars file for sample
+tomcat_download_source: "https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.zip"
+tomcat_download_location: "/tmp/apache-tomcat-10.1.8.zip"
+tomcat_install_path: "/opt/tomcat"
+username: tomcat
+java_package: "openjdk-11-jdk"
+unzip_package: unzip

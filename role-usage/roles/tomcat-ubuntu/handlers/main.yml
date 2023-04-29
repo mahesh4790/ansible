@@ -1,0 +1,9 @@
+---
+# handlers file for sample
+    - name: create link
+      file:
+        src: /opt/tomcat/apache-tomcat-10.1.8
+        dest: /opt/tomcat/latest
+        owner:  "{{ username }}"
+        group: "{{ username }}"
+        state: link
