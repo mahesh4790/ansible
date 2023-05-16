@@ -1,9 +1,0 @@
----
-- hosts: all
-  gather_facts: no
-  become: no
-  tasks:
-    - name: non included tasks
-      debug:
-        msg: " I am from calling playbook"
-    - include: more-tasks.yaml
