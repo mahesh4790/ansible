@@ -1,0 +1,11 @@
+---
+- name: install apache2
+  hosts: all
+  become: yes 
+  tasks:
+    - name: install apache2 on node1
+      apt:
+        name: apache2
+        update_cache: yes  
+        state: present
+         
